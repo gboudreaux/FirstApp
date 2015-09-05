@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_settings:
                 //openSettings();
+                System.out.println("Blah");
+                sendMessage(findViewById(R.id.edit_message));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -1,6 +1,8 @@
 package com.righteous.grant.firstapp;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.annotation.ColorInt;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,7 +20,14 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         TextView textView = new TextView(this);
         textView.setTextSize(40);
-        textView.setText(message);
+
+
+        try {
+            textView.setTextColor(Color.parseColor(message));
+            textView.setText(message.isEmpty() ? "No message" : message);
+        }catch(Exception e){
+            textView.setText("That's not a color");
+        }
 
         setContentView(textView);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
